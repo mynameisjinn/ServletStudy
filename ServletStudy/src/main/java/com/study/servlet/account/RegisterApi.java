@@ -1,6 +1,7 @@
 package com.study.servlet.account;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -22,10 +23,14 @@ public class RegisterApi extends HttpServlet {
 //		System.out.println(DTO.getParams(request));
 		
 		Map<String, String> registerParams = DTO.getParams(request);
+		AccountService accountService = AccountService.getInstance();
 		
 		if(AccountService.getInstance().idDuplicateUsername(registerParams.get("username"))) {
 			System.out.println("아이디 중복");
-		}else {
+			request.getRequestDispatcher("WEB-INF/account/error_username.html").forward(request, response);
+			return;
+		}
+//		else {
 			System.out.println("가입 가능");
 			User user = User.builder()
 					.username(registerParams.get("username"))
@@ -33,8 +38,15 @@ public class RegisterApi extends HttpServlet {
 					.name(registerParams.get("name"))
 					.email(registerParams.get("email"))
 					.build();
-			UserRepository.getInstance().saveUser(user);
-		}
+
+//			UserRepository.getInstance().saveUser(user);
+//		}
+			accountService.register(user);
+			
+			UserRepository.getInstance().showUserAll();
+			
+			response.sendRedirect("/login");
+			
 	}
 
 }

@@ -23,4 +23,16 @@ public class AccountService {
 		User user = UserRepository.getInstance().findUserByUsername(username);
 		return user != null;
 	}
+	
+	public void register(User user) {
+		UserRepository.getInstance().saveUser(user);
+	}
+	
+	public User loadUserByUsername(String username) {
+		return UserRepository.getInstance().findUserByUsername(username);
+	}
+	
+	public boolean cheackPassword(User user, String password) {
+		return user.getPassword().equals(password);
+	}
 }
