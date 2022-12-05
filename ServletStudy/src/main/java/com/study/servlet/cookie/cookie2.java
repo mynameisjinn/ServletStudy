@@ -1,6 +1,8 @@
 package com.study.servlet.cookie;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +17,11 @@ public class cookie2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cookie[] cookies = request.getCookies();
-//		List<Cookie> cookieList = Arrays.asList(cookies);
 		
 		for(Cookie c : cookies) {
 			System.out.println("key: " + c.getName());
-			System.out.println("value: " + c.getValue());
+			System.out.println("value: " + 
+					URLDecoder.decode(c.getValue(),StandardCharsets.UTF_8));
 		}
-		
 	}
-
 }

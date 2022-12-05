@@ -1,6 +1,9 @@
 package com.study.servlet.cookie;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +21,13 @@ public class cookie1 extends HttpServlet {
 		Cookie cookie = new Cookie("data1","쿠키저장"); 
 		// 쿠키에 띄어쓰기 쓸수없음 ex) '쿠키 저장' -> 오류 	
 		cookie.setMaxAge(60 * 60);
+		
+		Cookie cookie2 = new Cookie("data2", 
+				URLEncoder.encode("공백을 포함하는 쿠키값",StandardCharsets.UTF_8));
+		cookie.setMaxAge(60*60);
 				
 		response.addCookie(cookie);
+		response.addCookie(cookie2);
  		
 	}
 
