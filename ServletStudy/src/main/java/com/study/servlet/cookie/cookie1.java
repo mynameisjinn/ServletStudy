@@ -1,7 +1,6 @@
 package com.study.servlet.cookie;
 
 import java.io.IOException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
