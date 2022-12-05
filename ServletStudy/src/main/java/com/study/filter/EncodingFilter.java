@@ -11,12 +11,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter("")
+@WebFilter("/*")
 public class EncodingFilter extends HttpFilter implements Filter {
        
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	public void destory() {}
@@ -39,7 +36,7 @@ public class EncodingFilter extends HttpFilter implements Filter {
 	
 
 	public void init(FilterConfig fConfig) throws ServletException {
-
+		
 	}
 
 }

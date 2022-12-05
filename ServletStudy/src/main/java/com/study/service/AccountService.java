@@ -1,8 +1,5 @@
 package com.study.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.study.domain.User;
 import com.study.repository.UserRepository;
 
