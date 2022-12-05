@@ -18,7 +18,7 @@ public class RequestPrams1 extends HttpServlet {
 		System.out.println(request.getContentType());
 		System.out.println(request.getRemoteHost());
 		System.out.println(request.getLocalPort());
-		System.out.println(request.getMethod());
+//		System.out.println(request.getMethod());
 		System.out.println(request.getRequestURI());
 		System.out.println(request.getQueryString());
 		

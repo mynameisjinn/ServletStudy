@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter("/*")
+@WebFilter("")
 public class EncodingFilter extends HttpFilter implements Filter {
        
 	/**
