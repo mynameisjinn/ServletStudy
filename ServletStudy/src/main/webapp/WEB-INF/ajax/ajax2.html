@@ -21,14 +21,27 @@
 				address3: document.querySelector(".address3").value
 		};
 
+		// stringify() - 객체 -> JSON
+		// parse() - JSON -> 객체 
 		$.ajax({
 			async: false,     
 			type: "post",
 			url: "/api/ajax2",
-			data: addr,
+			data:{ jsonData: JSON.stringify(addr)},
 			dataType: "text",
 			success: response => {
 				alert(response);
+				
+			/*	console.log(response);  
+				console.log(Json.parse(response).address1); */
+				
+				let obj = JSON.parse(response); 
+				
+				console.log(obj.address1);
+				console.log(obj.address2);
+				console.log(obj.address3);
+				
+				
 			},
 			error: response => {
 				alert("요청 실패")
