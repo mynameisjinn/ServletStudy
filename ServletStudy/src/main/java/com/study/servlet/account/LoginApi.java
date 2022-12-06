@@ -42,7 +42,7 @@ public class LoginApi extends HttpServlet {
 		
 		// 로그인 성공! -> session 에 데이터 들어가야함 !  
 		HttpSession session = request.getSession();
-		session.setAttribute("princial", user);
+		session.setAttribute("principal", user);
 		
 		response.sendRedirect("/mypage");
 		
