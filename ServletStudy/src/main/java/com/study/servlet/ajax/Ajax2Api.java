@@ -1,7 +1,6 @@
 package com.study.servlet.ajax;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -13,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.study.util.DTO;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Builder
+@Data
 class Address{
 	private String address1;
 	private String address2;
