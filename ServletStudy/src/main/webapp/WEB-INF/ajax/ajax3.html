@@ -30,9 +30,10 @@
 			data:{
 				data:JSON.stringify(phoneNumber)
 			},
-			dataType:"text",
+			dataType:"json", 
+			// 응답에 대한 type. json.parse() 과정필요 없이 Object 로 사용할 수 있음
 			success: response => {
-				alert(response)
+				console.log(response)
 			},
 			error: response => {
 				alert("데이터 전송 실패")
